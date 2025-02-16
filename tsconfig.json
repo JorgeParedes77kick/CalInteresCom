@@ -23,7 +23,8 @@
     "noUncheckedSideEffectImports": true,
     "baseUrl": "./src",
     "paths": {
-      "*": ["*"]
+      "*": ["*"],
+      "src/*": ["*"]
     },
     "types": ["jest", "@testing-library/jest-dom"], // Incluir los tipos de Jest
     "esModuleInterop": true

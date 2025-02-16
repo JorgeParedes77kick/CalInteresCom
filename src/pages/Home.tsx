@@ -1,10 +1,10 @@
-import React from "react";
+import { CustomForm } from 'components/Form/CustomForm';
+import React from 'react';
 
 const Home: React.FC = () => {
   return (
     <div>
-      <h1>Welcome to the Home Page</h1>
-      <p>This is a simple Home component.</p>
+      <CustomForm />
     </div>
   );
 };
