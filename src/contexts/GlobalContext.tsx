@@ -11,29 +11,29 @@ interface FunctionsContextType {
   setValue: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
-type MainContextType = ValuesContextType & FunctionsContextType;
+type GlobalContextType = ValuesContextType & FunctionsContextType;
 
 // Creación del contexto global
-export const MainContext = createContext<MainContextType>({
+export const GlobalContext = createContext<GlobalContextType>({
   value: 0,
   setValue: () => {},
 });
 
 // Props para el proveedor del contexto
-interface MainContextProviderProps {
+interface GlobalContextProviderProps {
   children: ReactNode;
 }
 
 // Proveedor del contexto global
-export const MainContextProvider = ({ children }: MainContextProviderProps) => {
+export const GlobalContextProvider = ({ children }: GlobalContextProviderProps) => {
   const [value, setValue] = useState<number | null>(EmptyGlobalState);
 
-  return <MainContext.Provider value={{ value, setValue }}>{children}</MainContext.Provider>;
+  return <GlobalContext.Provider value={{ value, setValue }}>{children}</GlobalContext.Provider>;
 };
 
 // Hook para usar el contexto global
-export const useMainContext = () => {
-  const context = useContext(MainContext);
+export const useGlobalContext = () => {
+  const context = useContext(GlobalContext);
   if (!context) {
     throw new Error('Global error context');
   }
