@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-interface RoutesWithNotFoundProps {
+interface WithNotFoundProps {
   children: ReactNode;
 }
-export const RoutesWithNotFound = ({ children }: RoutesWithNotFoundProps) => {
+export const WithNotFound = ({ children }: WithNotFoundProps) => {
   return (
     <Routes>
       {children}

@@ -1,0 +1,8 @@
+$overflow-values: ('auto', 'hidden', 'visible', 'scroll');
+$align-properties: ('baseline', 'top', 'middle', 'bottom', 'text-bottom', 'text-top');
+
+@each $value in $align-properties {
+  .align-#{$value} {
+    vertical-align: #{$value} !important;
+  }
+}

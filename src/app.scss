@@ -1,7 +1,59 @@
+@use './styles/align';
+@use './styles/colors';
+@use './styles/flex';
+@use './styles/overflow';
+@use './styles/sizes';
+@use './styles/text';
+
+:root {
+  @each $color, $value in colors.$theme-colors {
+    --#{$color}: #{$value};
+  }
+}
+
 body {
   background-color: gray;
   font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+
+  input {
+    max-width: 30rem;
+    border: 1px solid gray;
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+
+    &:focus-visible {
+      outline: none;
+      // border-color: colors.$primary;
+      // box-shadow: 0 0 0 0.25rem;
+      border-width: 2.5px;
+    }
+  }
+
+  .form-control {
+    margin-top: 0.25rem;
+    font-size: 0.9rem;
+    &.is-invalid {
+      border-color: colors.$danger;
+    }
+  }
+
+  .form-control + .error {
+    color: colors.$danger;
+    max-width: 30rem;
+    margin: 0.25rem 0;
+  }
 }

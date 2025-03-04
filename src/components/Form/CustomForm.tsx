@@ -3,7 +3,6 @@ import { InputForm } from 'components/Form/InputForm';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { FormValuesForm, schemaCustomForm } from 'models/SchemaCustomForm';
-import './styles.scss';
 
 export const CustomForm = () => {
   const {
@@ -12,6 +11,7 @@ export const CustomForm = () => {
     formState: { errors },
   } = useForm<FormValuesForm>({
     resolver: zodResolver(schemaCustomForm),
+    mode: 'onBlur',
   });
 
   const onSubmit: SubmitHandler<FormValuesForm> = (data: FormValuesForm) => {
@@ -42,7 +42,7 @@ export const CustomForm = () => {
         control={control}
         error={errors?.confirmPassword}
       />
-      <button type="submit" className="btn btn-primary">
+      <button color="submit" className="btn btn-primary">
         Enviar
       </button>
     </form>

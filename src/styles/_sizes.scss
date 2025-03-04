@@ -1,0 +1,84 @@
+.min-h-25 {
+  min-height: 25% !important;
+}
+.min-h-50 {
+  min-height: 50% !important;
+}
+.min-h-75 {
+  min-height: 75% !important;
+}
+.min-h-100 {
+  min-height: 100% !important;
+}
+.min-h-auto {
+  min-height: auto !important;
+}
+.min-h-fit {
+  min-height: fit-content !important;
+}
+
+.max-h-25 {
+  max-height: 25% !important;
+}
+.max-h-50 {
+  max-height: 50% !important;
+}
+.max-h-75 {
+  max-height: 75% !important;
+}
+.max-h-100 {
+  max-height: 100% !important;
+}
+.max-h-auto {
+  max-height: auto !important;
+}
+.max-h-fit {
+  max-height: fit-content !important;
+}
+
+.min-w-25 {
+  min-width: 25% !important;
+}
+.min-w-50 {
+  min-width: 50% !important;
+}
+.min-w-75 {
+  min-width: 75% !important;
+}
+.min-w-100 {
+  min-width: 100% !important;
+}
+.min-w-auto {
+  min-width: auto !important;
+}
+.min-w-fit {
+  min-width: fit-content !important;
+}
+
+.max-w-25 {
+  max-width: 25% !important;
+}
+.max-w-50 {
+  max-width: 50% !important;
+}
+.max-w-75 {
+  max-width: 75% !important;
+}
+.max-w-100 {
+  max-width: 100% !important;
+}
+.max-w-auto {
+  max-width: auto !important;
+}
+.max-w-fit {
+  max-width: fit-content !important;
+}
+
+@for $i from 1 through 100 {
+  .h-#{$i} {
+    height: calc(#{$i} * 1%) !important;
+  }
+  .w-#{$i} {
+    width: calc(#{$i} * 1%) !important;
+  }
+}

@@ -2,8 +2,8 @@ import { GlobalContextProvider } from 'contexts/GlobalContext';
 import { ModalContextProvider } from 'contexts/ModalContext';
 
 import App from './App';
-import AppRouter from './AppRouter';
 import ErrorBoundary from './ErrorBoundary';
+import AppRouter from './router/AppRouter';
 
 const AppHookContainer = () => {
   return (

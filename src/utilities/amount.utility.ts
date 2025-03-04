@@ -1,25 +1,35 @@
 import { CurrencyCode } from 'constants/currencies';
+interface FormatAmountOptions extends Omit<Intl.NumberFormatOptions, 'currency'> {
+  currency?: CurrencyCode;
+  symbol?: string;
+}
 
 export const formatAmount = (
   amount: number | string,
-  currency: CurrencyCode = CurrencyCode.CLP,
-  minFractionDigits?: number,
-  maxFractionDigits?: number,
+  minimumFractionDigits?: number,
+  maximumFractionDigits?: number,
+  options?: FormatAmountOptions,
 ): string => {
-  if (typeof amount === 'string') {
-    amount = parseFloat(amount);
-  } else if (typeof amount !== 'number') {
-    throw new Error('Invalid amount type');
-  }
-  if (isNaN(amount)) {
+  const numericAmount = typeof amount === 'string' ? parseFloat(amount) : amount;
+
+  if (isNaN(numericAmount)) {
     throw new Error('Invalid amount');
   }
-  return new Intl.NumberFormat('es-CL', {
+
+  const { currency: initialCurrency = CurrencyCode.CLP, symbol } = options || {};
+  let currency = initialCurrency;
+
+  if (symbol != undefined) currency = CurrencyCode.CLP;
+
+  const formattedAmount = new Intl.NumberFormat('es-CL', {
     style: 'currency',
-    currency: currency,
-    minimumFractionDigits: minFractionDigits,
-    maximumFractionDigits: maxFractionDigits,
-  }).format(amount);
+    minimumFractionDigits,
+    maximumFractionDigits,
+    ...options,
+    currency,
+  }).format(numericAmount);
+
+  return symbol != undefined ? formattedAmount.replace('$', symbol) : formattedAmount;
 };
 
 // Nueva función para convertir una cadena de texto con formato de moneda a un número
